@@ -1,7 +1,22 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<MonacoEditor ref="_editor" Model="@_editorModel" FullScreen="true" />
 
-Welcome to your new app.
+@functions {
+    private EditorModel _editorModel { get; set; }
+    private MonacoEditor _editor;
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    protected override void OnInit()
+    {
+        _editorModel = new EditorModel(new EditorOptions()
+        {
+            Value = "// Your Code Here!",
+            Language = "csharp",
+            Theme = "vs-dark",
+            Minimap = new MinimapOptions()
+            {
+                Enabled = false
+            }
+        });
+    }
+}
