@@ -1,0 +1,58 @@
+strategy:
+  matrix:
+    linux:
+      imageName: 'ubuntu-latest'
+    windows:
+      imageName: 'windows-2019'
+
+pool:
+  vmImage: $(imageName)
+
+steps:
+
+- task: DotNetCoreInstaller@0
+  displayName: 'Installing .NET Core SDK...'
+  inputs:
+    version: 3.0.100-preview5-011568
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore NuGet packages'
+  inputs:
+    command: 'restore'
+    feedsToUse: 'select'
+    versioningScheme: 'off'
+
+- task: Npm@1
+  displayName: 'Install Npm packages'
+  inputs:
+    command: 'install'
+
+- task: Npm@1
+  displayName: 'Run clean script'
+  inputs:
+    command: 'custom'
+    customCommand: 'run clean'
+
+- task: Npm@1
+  displayName: 'Run build script'
+  inputs:
+    command: 'custom'
+    customCommand: 'run ebuild'
+
+- task: Npm@1
+  displayName: 'Run release script'
+  inputs:
+    command: 'custom'
+    customCommand: 'run release'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'dist'
+    Contents: 'unitinium-workbench*'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'Unitinium-Workbench'
+    publishLocation: 'Container'
