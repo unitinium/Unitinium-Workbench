@@ -1,8 +1,6 @@
-trigger:
-- master
 
 pool:
-  vmImage: 'VS2019'
+  vmImage: 'windows-2019'
 
 steps:
 - script: echo Hello, world!
