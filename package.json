@@ -11,9 +11,10 @@
     "e": "electron ./",
     "e-dev": "cross-env APP_ENV=DEV npm run e",
     "release-linux": "rimraf ./dist && npm run ebuild && electron-builder -l",
-    "release": "rimraf ./dist && npm run ebuild && electron-builder -mwl",
+    "release": "electron-builder -mwl",
     "cp-update": "rimraf ./dist/update && mkdirp ./dist/update && cpy dist/*.blockmap dist/update/ && cpy dist/*.yml dist/update/ && cpy dist/*.exe dist/update/",
-    "pack": "npm run release && npm run cp-update"
+    "pack": "npm run release && npm run cp-update",
+    "clean": "rimraf ./dist"
   },
   "build": {
     "appId": "com.unitinium-workbench",
