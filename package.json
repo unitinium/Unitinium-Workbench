@@ -1,0 +1,70 @@
+{
+  "name": "unitinium-workbench",
+  "version": "1.0.0",
+  "description": "Unitinium Workbench",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "start": "concurrently \"dotnet run\" \"cross-env APP_ENV=DEV npm run e\"",
+    "build": "dotnet build",
+    "ebuild": "dotnet publish -c Release -o dist/uw",
+    "e": "electron ./",
+    "e-dev": "cross-env APP_ENV=DEV npm run e",
+    "release-linux": "rimraf ./dist && npm run ebuild && electron-builder -l",
+    "release": "rimraf ./dist && npm run ebuild && electron-builder -mwl",
+    "cp-update": "rimraf ./dist/update && mkdirp ./dist/update && cpy dist/*.blockmap dist/update/ && cpy dist/*.yml dist/update/ && cpy dist/*.exe dist/update/",
+    "pack": "npm run release && npm run cp-update"
+  },
+  "build": {
+    "appId": "com.unitinium-workbench",
+    "files": [
+      "dist/uw/Unitinium-Workbench/dist/**",
+      "package.json",
+      "index.js"
+    ],
+    "directories": {
+      "buildResources": "resources"
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://update.unitinium.io/"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unitinium/Unitinium-Workbench.git"
+  },
+  "author": "Stanislav Petrov <sv.petrov@kodep.pro>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unitinium/Unitinium-Workbench/issues"
+  },
+  "homepage": "https://github.com/unitinium/Unitinium-Workbench#readme",
+  "dependencies": {
+    "electron-localshortcut": "^3.1.0",
+    "electron-log": "^2.2.17",
+    "electron-updater": "^4.0.6"
+  },
+  "devDependencies": {
+    "electron": "^5.0.1",
+    "electron-builder": "^20.38.4",
+    "electron-winstaller": "^2.7.0",
+    "concurrently": "^4.1.0",
+    "rimraf": "^2.6.3",
+    "cross-env": "^5.2.0",
+    "wine": "^0.9.8"
+  }
+}
