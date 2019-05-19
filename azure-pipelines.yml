@@ -22,6 +22,18 @@ steps:
     command: 'install'
 
 - task: Npm@1
+  displayName: 'Run clean script'
+  inputs:
+    command: 'custom'
+    customCommand: 'run clean'
+
+- task: Npm@1
+  displayName: 'Run build script'
+  inputs:
+    command: 'custom'
+    customCommand: 'run ebuild'
+
+- task: Npm@1
   displayName: 'Run release script'
   inputs:
     command: 'custom'
