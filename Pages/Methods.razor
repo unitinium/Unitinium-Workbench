@@ -1,0 +1,61 @@
+@page "/methods"
+@inject Config config
+@inject HttpClient Http
+@using System.Linq
+@using System.Collections 
+@using Newtonsoft.Json
+
+<h3>Methods</h3>
+
+@if(error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Error!</h4>
+        <p>@error</p>
+    </div>
+}
+else
+{
+    @foreach (var item in methods)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">@item.HumanName</h5>
+                <a href="#" class="btn btn-primary">Create request</a>
+            </div>
+        </div>
+    }
+}
+
+@functions {
+    MethodDefinition[] methods = new MethodDefinition[0];
+    string error = null;
+
+    protected override async Task OnInitAsync()
+    {
+        methods = new MethodDefinition[0];
+        error = null;
+        JsonRpcResponseData<MethodDefinition[]> response = null;
+        try
+        {
+            response = await Http.PostJsonAsync<JsonRpcResponseData<MethodDefinition[]>>($"{config.Host}:{config.Port}",
+            new JsonRpcRequestData()
+            {
+                method = "help"
+            });
+        }
+        catch(Exception e)
+        {
+            error = e.ToString();
+            return;
+        }
+
+        if(response.error != null)
+        {
+            error = (string)response.error;
+            return;
+        }
+
+        methods = response.result;
+    }
+}

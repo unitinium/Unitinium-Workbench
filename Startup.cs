@@ -7,6 +7,7 @@ namespace Unitinium_Workbench
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<Config>(new Config());
         }
 
         public void Configure(IComponentsApplicationBuilder app)
