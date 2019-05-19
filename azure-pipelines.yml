@@ -3,10 +3,26 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: DotNetCoreInstaller@0
+  displayName: 'Installing .NET Core SDK...'
+  inputs:
+    version: 3.0.100-preview5-011568
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore NuGet packages'
+  inputs:
+    command: 'restore'
+    feedsToUse: 'select'
+    versioningScheme: 'off'
+
+- task: Npm@1
+  displayName: 'Install Npm packages'
+  inputs:
+    command: 'install'
+
+- task: Npm@1
+  displayName: 'Run release script'
+  inputs:
+    command: 'custom'
+    customCommand: 'run release'
