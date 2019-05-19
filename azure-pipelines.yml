@@ -2,8 +2,6 @@ strategy:
   matrix:
     linux:
       imageName: 'ubuntu-latest'
-    mac:
-      imageName: 'macos-10.13'
     windows:
       imageName: 'windows-2019'
 
