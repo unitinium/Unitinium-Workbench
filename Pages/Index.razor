@@ -1,23 +1,2 @@
 ﻿@page "/"
 @page "/index.html"
-
-<MonacoEditor ref="_editor" Model="@_editorModel" FullScreen="true" />
-
-@functions {
-    private EditorModel _editorModel { get; set; }
-    private MonacoEditor _editor;
-
-    protected override void OnInit()
-    {
-        _editorModel = new EditorModel(new EditorOptions()
-        {
-            Value = "// Your Code Here!",
-            Language = "csharp",
-            Theme = "vs-dark",
-            Minimap = new MinimapOptions()
-            {
-                Enabled = false
-            }
-        });
-    }
-}

@@ -1,0 +1,34 @@
+
+<MonacoEditor ref="editor" Model=@editorModel FullScreen="true" />
+
+@functions
+{
+    private EditorModel editorModel { get; set; }
+    private MonacoEditor editor;
+
+    protected override void OnInit()
+    {
+        var options = new EditorOptions()
+        {
+            Value = "",
+            Language = "javascript",
+            Theme = "vs-dark",
+            Minimap = new MinimapOptions()
+            {
+                Enabled = false
+            }
+        };
+        editorModel = new EditorModel(options);
+    }
+
+    public void Update(SceneNode node)
+    {
+        if(node == null)
+        {
+            return;
+        }
+
+        var value = JsonConvert.SerializeObject(node.components, Formatting.Indented);
+        Task.Run(async () => await editor.SetValue(value));
+    }
+}

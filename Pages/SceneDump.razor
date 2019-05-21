@@ -1,0 +1,74 @@
+@page "/scene-dump"
+@inject Config config
+@inject HttpClient Http
+@using System.Linq
+@using System.Collections 
+
+<button onclick=@Dump class="btn btn-primary mb-3">Dump scene</button>
+
+@if(error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Error!</h4>
+        <p>@error</p>
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <SceneNodeView ref="nodeView" />
+    </div>
+    @if(RootNode != null)
+    {
+        <div class="col-md-6 col-sm-12">
+            <SceneTreeView classData="treeView" RootNode=@RootNode OnSelected=@selectNode />
+        </div>
+    }
+</div>
+
+
+@functions {
+    string error = null;
+
+    SceneNode RootNode;
+    SceneNodeView nodeView;
+
+    async Task Dump()
+    {
+        error = null;
+        JsonRpcResponseData<SceneNode> response = null;
+        try
+        {
+            response = await Http.PostJsonAsync<JsonRpcResponseData<SceneNode>>($"{config.Host}:{config.Port}",
+            new JsonRpcRequestData()
+            {
+                method = "sceneDump"
+            });
+        }
+        catch(Exception e)
+        {
+            error = e.ToString();
+            return;
+        }
+
+        if(response.error != null)
+        {
+            error = (string)response.error;
+            return;
+        }
+        else if(response.result == null)
+        {
+            error = "Result is empty";
+            return;
+        }
+
+        RootNode = response.result;
+
+        this.StateHasChanged();
+    }
+
+    void selectNode(SceneNode node)
+    {
+        nodeView.Update(node);
+    }
+}

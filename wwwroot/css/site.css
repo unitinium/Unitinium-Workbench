@@ -133,3 +133,46 @@ app {
         display: block;
     }
 }
+
+.treeView li:hover {
+    background-color: lightgray;
+}
+.treeView li:hover {
+    font-weight: bold;    
+}
+.treeView li:hover ul {
+    background-color: white;
+    font-weight: normal;
+}
+.selected {
+    background-color: lightblue;
+}
+.treeView ul {
+    padding: 0;
+    padding-left: 1em;
+    margin: 0;
+}
+
+.caret {
+    cursor: pointer; 
+    user-select: none; /* Prevent text selection */
+}
+
+.caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.caret-down::before {
+    transform: rotate(90deg); 
+}
+
+.nested {
+    display: none;
+}
+
+.active {
+    display: block;
+}
