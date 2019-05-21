@@ -3,7 +3,6 @@
 @inject HttpClient Http
 @using System.Linq
 @using System.Collections 
-@using Newtonsoft.Json
 
 <button onclick=@Dump class="btn btn-primary mb-3">Dump scene</button>
 
@@ -14,40 +13,33 @@
         <p>@error</p>
     </div>
 }
-else
-{
-    <MonacoEditor ref="_editor" Model=@_editorModel FullScreen="true" />
-}
+
+<div class="row">
+    <div class="col-md-6 col-sm-12">
+        <SceneNodeView ref="nodeView" />
+    </div>
+    @if(RootNode != null)
+    {
+        <div class="col-md-6 col-sm-12">
+            <SceneTreeView classData="treeView" RootNode=@RootNode OnSelected=@selectNode />
+        </div>
+    }
+</div>
+
 
 @functions {
     string error = null;
 
-    private EditorModel _editorModel { get; set; }
-    private MonacoEditor _editor;
-    private EditorOptions _options;
-
-    protected override void OnInit()
-    {
-        _options = new EditorOptions()
-        {
-            Value = "",
-            Language = "csharp",
-            Theme = "vs-dark",
-            Minimap = new MinimapOptions()
-            {
-                Enabled = false
-            }
-        };
-        _editorModel = new EditorModel(_options);
-    }
+    SceneNode RootNode;
+    SceneNodeView nodeView;
 
     async Task Dump()
     {
         error = null;
-        JsonRpcResponseData<object> response = null;
+        JsonRpcResponseData<SceneNode> response = null;
         try
         {
-            response = await Http.PostJsonAsync<JsonRpcResponseData<object>>($"{config.Host}:{config.Port}",
+            response = await Http.PostJsonAsync<JsonRpcResponseData<SceneNode>>($"{config.Host}:{config.Port}",
             new JsonRpcRequestData()
             {
                 method = "sceneDump"
@@ -64,9 +56,19 @@ else
             error = (string)response.error;
             return;
         }
+        else if(response.result == null)
+        {
+            error = "Result is empty";
+            return;
+        }
 
-        await _editor.SetValue(JsonConvert.SerializeObject(response.result, Formatting.Indented));
+        RootNode = response.result;
 
         this.StateHasChanged();
+    }
+
+    void selectNode(SceneNode node)
+    {
+        nodeView.Update(node);
     }
 }

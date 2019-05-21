@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.1/system/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.Rider2019.1/system/resharper-host/local/Transient/ReSharperHost/v191/SolutionCaches/_.19.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/blazaco/1.2.0/contentFiles/any/netstandard2.0/Editor" t="Include">
+      <e p="MonacoEditor.razor" t="Include" />
+    </e>
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
+      <e p="App.razor" t="Include" />
+      <e p="Config.cs" t="Include" />
+      <e p="LICENSE.md" t="Include" />
+      <e p="Objects" t="Include">
+        <e p="JsonRpcData.cs" t="Include" />
+        <e p="MethodDefinition.cs" t="Include" />
+        <e p="SceneNode.cs" t="Include" />
+      </e>
+      <e p="Pages" t="Include">
+        <e p="Counter.razor" t="Include" />
+        <e p="FetchData.razor" t="Include" />
+        <e p="Index.razor" t="Include" />
+        <e p="Methods.razor" t="Include" />
+        <e p="SceneDump.razor" t="Include" />
+        <e p="Settings.razor" t="Include" />
+        <e p="_Imports.razor" t="Include" />
+      </e>
+      <e p="Program.cs" t="Include" />
+      <e p="README.md" t="Include" />
+      <e p="Shared" t="Include">
+        <e p="MainLayout.razor" t="Include" />
+        <e p="NavMenu.razor" t="Include" />
+        <e p="SceneTreeView.razor" t="Include" />
+      </e>
+      <e p="Startup.cs" t="Include" />
+      <e p="Unitinium-Workbench.csproj" t="IncludeRecursive" />
+      <e p="_Imports.razor" t="Include" />
+      <e p="azure-pipelines.yml" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="index.js" t="Include" />
+      <e p="node_modules/@types" t="IncludeRecursive" />
+      <e p="node_modules/concurrently" t="IncludeRecursive" />
+      <e p="node_modules/cross-env" t="IncludeRecursive" />
+      <e p="node_modules/electron" t="IncludeRecursive" />
+      <e p="node_modules/electron-builder" t="IncludeRecursive" />
+      <e p="node_modules/electron-localshortcut" t="IncludeRecursive" />
+      <e p="node_modules/electron-log" t="IncludeRecursive" />
+      <e p="node_modules/electron-updater" t="IncludeRecursive" />
+      <e p="node_modules/electron-winstaller" t="IncludeRecursive" />
+      <e p="node_modules/rimraf" t="IncludeRecursive" />
+      <e p="node_modules/wine" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netstandard2.0" t="Include">
+            <e p="Unitinium-Workbench.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="package-lock.json" t="Include" />
+      <e p="package.json" t="Include" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="wwwroot" t="Include">
+        <e p="css" t="Include">
+          <e p="bootstrap" t="Include">
+            <e p="bootstrap.min.css" t="Include" />
+            <e p="bootstrap.min.css.map" t="Include" />
+          </e>
+          <e p="open-iconic" t="Include">
+            <e p="FONT-LICENSE" t="Include" />
+            <e p="ICON-LICENSE" t="Include" />
+            <e p="README.md" t="Include" />
+            <e p="font" t="Include">
+              <e p="css" t="Include">
+                <e p="open-iconic-bootstrap.min.css" t="Include" />
+              </e>
+              <e p="fonts" t="Include">
+                <e p="open-iconic.eot" t="Include" />
+                <e p="open-iconic.otf" t="Include" />
+                <e p="open-iconic.svg" t="Include" />
+                <e p="open-iconic.ttf" t="Include" />
+                <e p="open-iconic.woff" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="site.css" t="Include" />
+        </e>
+        <e p="index.html" t="Include" />
+        <e p="monaco-editor" t="Include">
+          <e p="CHANGELOG.md" t="Include" />
+          <e p="LICENSE" t="Include" />
+          <e p="README.md" t="Include" />
+          <e p="ThirdPartyNotices.txt" t="Include" />
+          <e p="min" t="Include">
+            <e p="vs" t="Include">
+              <e p="base" t="Include">
+                <e p="worker" t="Include">
+                  <e p="workerMain.js" t="Include" />
+                </e>
+              </e>
+              <e p="basic-languages" t="Include">
+                <e p="apex" t="Include">
+                  <e p="apex.js" t="Include" />
+                </e>
+                <e p="azcli" t="Include">
+                  <e p="azcli.js" t="Include" />
+                </e>
+                <e p="bat" t="Include">
+                  <e p="bat.js" t="Include" />
+                </e>
+                <e p="clojure" t="Include">
+                  <e p="clojure.js" t="Include" />
+                </e>
+                <e p="coffee" t="Include">
+                  <e p="coffee.js" t="Include" />
+                </e>
+                <e p="cpp" t="Include">
+                  <e p="cpp.js" t="Include" />
+                </e>
+                <e p="csharp" t="Include">
+                  <e p="csharp.js" t="Include" />
+                </e>
+                <e p="csp" t="Include">
+                  <e p="csp.js" t="Include" />
+                </e>
+                <e p="css" t="Include">
+                  <e p="css.js" t="Include" />
+                </e>
+                <e p="dockerfile" t="Include">
+                  <e p="dockerfile.js" t="Include" />
+                </e>
+                <e p="fsharp" t="Include">
+                  <e p="fsharp.js" t="Include" />
+                </e>
+                <e p="go" t="Include">
+                  <e p="go.js" t="Include" />
+                </e>
+                <e p="handlebars" t="Include">
+                  <e p="handlebars.js" t="Include" />
+                </e>
+                <e p="html" t="Include">
+                  <e p="html.js" t="Include" />
+                </e>
+                <e p="ini" t="Include">
+                  <e p="ini.js" t="Include" />
+                </e>
+                <e p="java" t="Include">
+                  <e p="java.js" t="Include" />
+                </e>
+                <e p="javascript" t="Include">
+                  <e p="javascript.js" t="Include" />
+                </e>
+                <e p="less" t="Include">
+                  <e p="less.js" t="Include" />
+                </e>
+                <e p="lua" t="Include">
+                  <e p="lua.js" t="Include" />
+                </e>
+                <e p="markdown" t="Include">
+                  <e p="markdown.js" t="Include" />
+                </e>
+                <e p="msdax" t="Include">
+                  <e p="msdax.js" t="Include" />
+                </e>
+                <e p="mysql" t="Include">
+                  <e p="mysql.js" t="Include" />
+                </e>
+                <e p="objective-c" t="Include">
+                  <e p="objective-c.js" t="Include" />
+                </e>
+                <e p="perl" t="Include">
+                  <e p="perl.js" t="Include" />
+                </e>
+                <e p="pgsql" t="Include">
+                  <e p="pgsql.js" t="Include" />
+                </e>
+                <e p="php" t="Include">
+                  <e p="php.js" t="Include" />
+                </e>
+                <e p="postiats" t="Include">
+                  <e p="postiats.js" t="Include" />
+                </e>
+                <e p="powerquery" t="Include">
+                  <e p="powerquery.js" t="Include" />
+                </e>
+                <e p="powershell" t="Include">
+                  <e p="powershell.js" t="Include" />
+                </e>
+                <e p="pug" t="Include">
+                  <e p="pug.js" t="Include" />
+                </e>
+                <e p="python" t="Include">
+                  <e p="python.js" t="Include" />
+                </e>
+                <e p="r" t="Include">
+                  <e p="r.js" t="Include" />
+                </e>
+                <e p="razor" t="Include">
+                  <e p="razor.js" t="Include" />
+                </e>
+                <e p="redis" t="Include">
+                  <e p="redis.js" t="Include" />
+                </e>
+                <e p="redshift" t="Include">
+                  <e p="redshift.js" t="Include" />
+                </e>
+                <e p="ruby" t="Include">
+                  <e p="ruby.js" t="Include" />
+                </e>
+                <e p="rust" t="Include">
+                  <e p="rust.js" t="Include" />
+                </e>
+                <e p="sb" t="Include">
+                  <e p="sb.js" t="Include" />
+                </e>
+                <e p="scheme" t="Include">
+                  <e p="scheme.js" t="Include" />
+                </e>
+                <e p="scss" t="Include">
+                  <e p="scss.js" t="Include" />
+                </e>
+                <e p="shell" t="Include">
+                  <e p="shell.js" t="Include" />
+                </e>
+                <e p="solidity" t="Include">
+                  <e p="solidity.js" t="Include" />
+                </e>
+                <e p="sql" t="Include">
+                  <e p="sql.js" t="Include" />
+                </e>
+                <e p="st" t="Include">
+                  <e p="st.js" t="Include" />
+                </e>
+                <e p="swift" t="Include">
+                  <e p="swift.js" t="Include" />
+                </e>
+                <e p="typescript" t="Include">
+                  <e p="typescript.js" t="Include" />
+                </e>
+                <e p="vb" t="Include">
+                  <e p="vb.js" t="Include" />
+                </e>
+                <e p="xml" t="Include">
+                  <e p="xml.js" t="Include" />
+                </e>
+                <e p="yaml" t="Include">
+                  <e p="yaml.js" t="Include" />
+                </e>
+              </e>
+              <e p="editor" t="Include">
+                <e p="editor.main.css" t="Include" />
+                <e p="editor.main.js" t="Include" />
+                <e p="editor.main.nls.de.js" t="Include" />
+                <e p="editor.main.nls.es.js" t="Include" />
+                <e p="editor.main.nls.fr.js" t="Include" />
+                <e p="editor.main.nls.it.js" t="Include" />
+                <e p="editor.main.nls.ja.js" t="Include" />
+                <e p="editor.main.nls.js" t="Include" />
+                <e p="editor.main.nls.ko.js" t="Include" />
+                <e p="editor.main.nls.ru.js" t="Include" />
+                <e p="editor.main.nls.zh-cn.js" t="Include" />
+                <e p="editor.main.nls.zh-tw.js" t="Include" />
+              </e>
+              <e p="language" t="Include">
+                <e p="css" t="Include">
+                  <e p="cssMode.js" t="Include" />
+                  <e p="cssWorker.js" t="Include" />
+                </e>
+                <e p="html" t="Include">
+                  <e p="htmlMode.js" t="Include" />
+                  <e p="htmlWorker.js" t="Include" />
+                </e>
+                <e p="json" t="Include">
+                  <e p="jsonMode.js" t="Include" />
+                  <e p="jsonWorker.js" t="Include" />
+                </e>
+                <e p="typescript" t="Include">
+                  <e p="tsMode.js" t="Include" />
+                  <e p="tsWorker.js" t="Include" />
+                </e>
+              </e>
+              <e p="loader.js" t="Include" />
+            </e>
+          </e>
+          <e p="min-maps" t="Include">
+            <e p="vs" t="Include">
+              <e p="base" t="Include">
+                <e p="worker" t="Include">
+                  <e p="workerMain.js.map" t="Include" />
+                </e>
+              </e>
+              <e p="editor" t="Include">
+                <e p="editor.main.js.map" t="Include" />
+                <e p="editor.main.nls.de.js.map" t="Include" />
+                <e p="editor.main.nls.es.js.map" t="Include" />
+                <e p="editor.main.nls.fr.js.map" t="Include" />
+                <e p="editor.main.nls.it.js.map" t="Include" />
+                <e p="editor.main.nls.ja.js.map" t="Include" />
+                <e p="editor.main.nls.js.map" t="Include" />
+                <e p="editor.main.nls.ko.js.map" t="Include" />
+                <e p="editor.main.nls.ru.js.map" t="Include" />
+                <e p="editor.main.nls.zh-cn.js.map" t="Include" />
+                <e p="editor.main.nls.zh-tw.js.map" t="Include" />
+              </e>
+              <e p="loader.js.map" t="Include" />
+            </e>
+          </e>
+          <e p="monaco.d.ts" t="Include" />
+          <e p="package.json" t="Include" />
+        </e>
+      </e>
+    </e>
+  </component>
+</project>

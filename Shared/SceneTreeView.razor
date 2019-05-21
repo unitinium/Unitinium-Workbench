@@ -1,0 +1,72 @@
+<ul class=@classData style="list-style-type: none;">
+  <li class=@currentClass onclick=@Click >
+      <span class=@rootClass onclick=@Toggle></span>
+      @RootNode.name
+  </li>  
+    @if(isToggled)
+    {
+      <li>
+      @foreach(var child in RootNode.childs)
+      {
+          <SceneTreeView OnSelected=@selectedInChild RootNode=child />
+      }
+      </li>
+    }
+</ul>
+
+@functions
+{
+    [Parameter]
+    public SceneNode RootNode { get; set; }
+
+    [Parameter]
+    public string classData { get; set; } = "";
+
+    [Parameter]
+    public Action<SceneNode> OnSelected { get; set; }
+
+    static Action OnSelectGlobal;
+
+
+    string rootClass
+    {
+        get
+        {
+            return isToggled ? "caret caret-down" : "caret";
+        }
+    }
+
+    bool isToggled { get; set; } = true;
+
+    string currentClass
+    {
+        get
+        {
+            return isSelected ? "selected" : "";
+        }
+    }
+    bool isSelected { get; set; }
+
+    void Toggle()
+    {
+        isToggled = !isToggled;
+    }
+
+    void Click()
+    {
+        OnSelectGlobal?.Invoke();
+        OnSelectGlobal = () => {
+            isSelected = false;
+            StateHasChanged();
+        };
+        OnSelected?.Invoke(RootNode);
+        isSelected = true;
+
+        StateHasChanged();
+    }
+
+    void selectedInChild(SceneNode node)
+    {
+        OnSelected?.Invoke(node);
+    }
+}
