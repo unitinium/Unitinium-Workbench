@@ -1,0 +1,76 @@
+@page "/exec"
+
+<button onclick=@(async () => await Exec()) class="btn btn-primary mb-3">Execute</button>
+
+@if(error != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Error!</h4>
+        <code><pre>@error</pre></code>
+    </div>
+}
+
+<MonacoEditor ref="editor" Model=@editorModel Height="500" />
+
+<p>Result:</p> 
+
+<ObjectView ref="resultView"/>
+
+@functions
+{
+    [Inject]
+    private IJsonRpcService _jrpc { get; set; }
+
+    private EditorModel editorModel { get; set; }
+    private EditorModel editorModelResult { get; set; }
+    private MonacoEditor editor;
+    private ObjectView resultView;
+    private string error;
+
+    protected override void OnInit()
+    {
+        var options = new EditorOptions()
+        {
+            Value = "",
+            Language = "lua",
+            Theme = "vs-dark",
+            AutomaticLayout = true,
+            Minimap = new MinimapOptions()
+            {
+                Enabled = false
+            }
+        };
+        editorModel = new EditorModel(options);
+    }
+
+    public async Task Exec()
+    {
+        error = null;
+
+        JsonRpcResponseData<object> response = null;
+        try
+        {
+            response = await _jrpc.Invoke<object>("execute", await editor.GetValue());
+        }
+        catch(Exception e)
+        {
+            error = e.ToString();
+            return;
+        }
+
+        if(response.error != null)
+        {
+            error = (string)response.error;
+            return;
+        }
+        else if(response.result == null)
+        {
+            error = "Result is empty";
+            return;
+        }
+
+        resultView.Update(response.result);
+
+        this.StateHasChanged();
+    }
+}
