@@ -42,7 +42,7 @@
             response = await Http.PostJsonAsync<JsonRpcResponseData<SceneNode>>($"{config.Host}:{config.Port}",
             new JsonRpcRequestData()
             {
-                method = "sceneDump"
+                method = "dump"
             });
         }
         catch(Exception e)
